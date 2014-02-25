@@ -3,13 +3,13 @@
 one:
   name: MyString
   description: MyText
-  date_created: 2014-02-25 17:41:40
+  registred_at: 2014-02-25 17:41:40
   manufacturer: MyString
   quantity: 1
 
 two:
   name: MyString
   description: MyText
-  date_created: 2014-02-25 17:41:40
+  registred_at: 2014-02-25 17:41:40
   manufacturer: MyString
   quantity: 1
