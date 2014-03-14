@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314161625) do
+ActiveRecord::Schema.define(version: 20140314163809) do
 
   create_table "line_items", force: true do |t|
     t.integer  "id_product"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140314161625) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "registred_at"
+    t.string   "category"
   end
 
 end
