@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314122944) do
+ActiveRecord::Schema.define(version: 20140314161625) do
 
   create_table "line_items", force: true do |t|
     t.integer  "id_product"
