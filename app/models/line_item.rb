@@ -1,4 +1,4 @@
 class LineItem < ActiveRecord::Base
-	belongs_to :order
-	has_many :product
+  belongs_to :orders
+  belongs_to :products
 end
