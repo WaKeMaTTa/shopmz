@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140315130334) do
+ActiveRecord::Schema.define(version: 20140321073756) do
 
   create_table "line_items", force: true do |t|
     t.string   "product"
     t.integer  "quantity"
     t.float    "price"
-    t.integer  "orders_id"
-    t.integer  "products_id"
+    t.integer  "order_id"
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "line_items", ["orders_id"], name: "index_line_items_on_orders_id", using: :btree
-  add_index "line_items", ["products_id"], name: "index_line_items_on_products_id", using: :btree
+  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
   create_table "orders", force: true do |t|
     t.string   "status"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140315130334) do
     t.datetime "updated_at"
     t.datetime "registred_at"
     t.string   "category"
+    t.float    "price"
   end
 
 end
