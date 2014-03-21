@@ -1,4 +1,4 @@
-<%= form_for(@order) do |f| %>
+<%= form_for(@order, html: { class: "form-horizontal" }) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -11,27 +11,47 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
+  <div class="control-group">
+    <%= f.label :status, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :status %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :payment_method %><br>
-    <%= f.text_field :payment_method %>
+  <div class="control-group">
+    <%= f.label :payment_method, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :payment_method %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :delivery_address %><br>
-    <%= f.text_area :delivery_address %>
+  <div class="control-group">
+    <%= f.label :delivery_address, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_area :delivery_address %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :delivery_city %><br>
-    <%= f.text_field :delivery_city %>
+  <div class="control-group">
+    <%= f.label :delivery_city, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :delivery_city %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :customer_name %><br>
-    <%= f.text_field :customer_name %>
+  <div class="control-group">
+    <%= f.label :customer_name, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :customer_name %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="control-group">
+    <%= f.label :line_items, "Products", class: "control-label" %>
+    <div class="controls">
+      <%= f.fields_for :line_items do |fields| %>
+        <%= render 'form_line_items', :f => fields %>
+      <% end %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit 'Save', class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>

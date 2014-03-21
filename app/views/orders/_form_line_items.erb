@@ -1,0 +1,19 @@
+<table class="table breadcrumb">
+  <thead>
+    <tr>
+      <th><%= f.label :name %></th>
+      <th><%= f.label :unit_price %></th>
+      <th><%= f.label :quantity %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @products = Product.all %>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product[:name] %></td>
+      <td><%= product[:price] %></td>
+      <td><%= f.number_field :quantity, value: 0 %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
