@@ -43,3 +43,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Twitter Bootstrap
+gem "twitter-bootstrap-rails"
