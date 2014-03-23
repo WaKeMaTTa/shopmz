@@ -15,3 +15,12 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+function remove_line_item(button) {
+	if ( $(".lineitem").size() > 1 ) {
+		$(button).closest(".lineitem").remove();
+	}
+}
+
+function add_line_item() {
+}
