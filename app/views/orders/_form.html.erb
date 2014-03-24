@@ -44,12 +44,10 @@
   <div class="control-group">
     <%= f.label :line_items, "Products", class: "control-label" %>
     <div class="controls">
-      <div class="breadcrumb">
-        <%= f.fields_for :line_items do |fields| %>
-          <%= render 'form_line_items', :f => fields %>
-        <% end %>
-      </div>
-      <%= link_to_function "Add Item", "add_line_item()", class: "btn btn-small btn-success" %>
+      <%= f.fields_for :line_items do |builder| %>
+        <%= render 'line_item_fields', :f => builder %>
+      <% end %>
+      <%= link_to_add_fields "Add Product", f, :line_items %>
     </div>
   </div>
   <div class="control-group">

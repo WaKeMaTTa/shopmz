@@ -27,10 +27,10 @@
 
 <p>
   <td colspan="8">
-    <strong>Products:</strong><br>
+    <strong>ID Products:</strong><br>
     <ol>
       <% for line_items in @order.line_items %>
-      <li><%= line_items[:product] %></li>
+      <li><%= line_items[:product_id] %></li>
       <% end %>
     </ol>
   </td>
