@@ -25,5 +25,16 @@
   <%= @order.customer_name %>
 </p>
 
+<p>
+  <td colspan="8">
+    <strong>Products:</strong><br>
+    <ol>
+      <% for line_items in @order.line_items %>
+      <li><%= line_items[:product] %></li>
+      <% end %>
+    </ol>
+  </td>
+</p>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
