@@ -1,58 +1,38 @@
-<%= form_for(@order, html: { class: "form-horizontal" }) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<%= form_for @order, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :status, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :payment_method, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :payment_method, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :delivery_address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :delivery_address, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :delivery_city, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :delivery_city, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :customer_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :customer_name, :class => 'text_field' %>
+    </div>
+  </div>
 
-      <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="control-group">
-    <%= f.label :status, class: "control-label" %>
-    <div class="controls">
-      <%= f.text_field :status %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :payment_method, class: "control-label" %>
-    <div class="controls">
-      <%= f.text_field :payment_method %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :delivery_address, class: "control-label" %>
-    <div class="controls">
-      <%= f.text_area :delivery_address %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :delivery_city, class: "control-label" %>
-    <div class="controls">
-      <%= f.text_field :delivery_city %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :customer_name, class: "control-label" %>
-    <div class="controls">
-      <%= f.text_field :customer_name %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :line_items, "Products", class: "control-label" %>
-    <div class="controls">
-      <%= f.fields_for :line_items do |builder| %>
-        <%= render 'line_item_fields', :f => builder %>
-      <% end %>
-      <%= link_to_add_fields "Add Product", f, :line_items %>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <%= f.submit 'Save', class: "btn btn-primary" %>
-    </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                orders_path, :class => 'btn' %>
   </div>
 <% end %>
