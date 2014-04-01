@@ -7,12 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="container">
-		<ul class="nav nav-tabs">
-			<li><a href="/orders">Orders</a></li>
-			<li><a href="/products">Products</a></li>
-		</ul>
-		<%= yield %>
-	</div>
+  <div class="navbar navbar-static-top navbar-inverse">
+    <div class="navbar-inner">
+      <a class="brand" href="/">Shop M.Z.</a>
+      <ul class="nav">
+        <li class="active">
+          <%= link_to "Home" %>
+        </li>
+        <li>
+          <%= link_to "Orders", orders_path %>
+        </li>
+        <li>
+          <%= link_to "Products", products_path %>
+        </li>
+      </ul>
+      <ul class="nav pull-right">
+        <li><a href="/login">Log In</a></li>
+        <li><a href="#">/</a></li>
+        <li><a href="/login">Register</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <% unless flash[:error].blank? %>
+      <div class="alert alert-error"><%= flash[:error] %></div>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
 </html>

@@ -1,4 +1,6 @@
 Shopmz::Application.routes.draw do
+  resources :users
+
   resources :orders
 
   resources :products
@@ -8,7 +10,6 @@ Shopmz::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'orders#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -58,4 +59,12 @@ Shopmz::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  root 'products#index'
+
+  get "/login", to: "sessions#new"
+
+  post "/register", to: "sessions#create"
+
+  delete "/logout", to: "sessions#destroy"
 end
