@@ -1,10 +1,4 @@
 Shopmz::Application.routes.draw do
-  resources :users
-
-  resources :orders
-
-  resources :products
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -62,9 +56,17 @@ Shopmz::Application.routes.draw do
 
   root 'products#index'
 
-  get "/login", to: "sessions#new"
+  resources :users
 
-  post "/register", to: "sessions#create"
+  resources :orders
 
-  delete "/logout", to: "sessions#destroy"
+  resources :products
+
+  resources :sessions
+
+  #get "/login", to: "sessions#new"
+
+  #post "/register", to: "sessions#create"
+
+  #delete "/logout", to: "sessions#destroy"
 end

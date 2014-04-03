@@ -22,9 +22,13 @@
         </li>
       </ul>
       <ul class="nav pull-right">
-        <li><a href="/login">Log In</a></li>
-        <li><a href="#">/</a></li>
-        <li><a href="/login">Register</a></li>
+        <% if current_user %>
+          <li><%= link_to "Log out", session_path(current_user.id), method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Log in", new_session_path %></li>
+          <li><a>/</a></li>
+          <li><%= link_to "Register", new_user_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
