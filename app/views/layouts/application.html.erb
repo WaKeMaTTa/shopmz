@@ -7,40 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar navbar-static-top navbar-inverse">
-    <div class="navbar-inner">
-      <a class="brand" href="/">Shop M.Z.</a>
-      <ul class="nav">
-        <li class="active">
-          <%= link_to "Home" %>
-        </li>
-        <li>
-          <%= link_to "Orders", orders_path %>
-        </li>
-        <li>
-          <%= link_to "Products", products_path %>
-        </li>
-      </ul>
-      <ul class="nav pull-right">
-        <% if current_user %>
-          <li><%= link_to "Log out", session_path(current_user.id), method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Log in", new_session_path %></li>
-          <li><a>/</a></li>
-          <li><%= link_to "Register", new_user_path %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+  <%= render 'nav' %>
   <div class="container">
-    <% unless flash[:error].blank? %>
-      <br/>
-      <div class="alert alert-error"><%= flash[:error] %></div>
-    <% end %>
-    <% unless flash[:alert].blank? %>
-      <br/>
-      <div class="alert alert-error"><%= flash[:alert] %></div>
-    <% end %>
+    <%= render 'flash' %>
     <%= yield %>
   </div>
 </body>
