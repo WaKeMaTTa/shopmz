@@ -34,7 +34,12 @@
   </div>
   <div class="container">
     <% unless flash[:error].blank? %>
+      <br/>
       <div class="alert alert-error"><%= flash[:error] %></div>
+    <% end %>
+    <% unless flash[:alert].blank? %>
+      <br/>
+      <div class="alert alert-error"><%= flash[:alert] %></div>
     <% end %>
     <%= yield %>
   </div>
