@@ -2,7 +2,7 @@
   <h1>Log In</h1>
 </div>
 
-<%= form_for :login, :html => { :class => 'form-horizontal',:method => 'POST' } do |f| %>
+<%= form_for :login, :url => sessions_path, :html => { class: 'form-horizontal', method: 'POST'} do |f| %>
   <div class="control-group">
     <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
