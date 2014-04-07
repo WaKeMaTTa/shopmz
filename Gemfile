@@ -49,3 +49,6 @@ gem "less-rails"
 
 # Twitter Bootstrap
 gem "twitter-bootstrap-rails"
+
+# Nokogiri
+gem 'nokogiri', '~> 1.6.1'
