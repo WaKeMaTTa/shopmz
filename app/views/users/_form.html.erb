@@ -1,30 +1,32 @@
 <%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
-
-  <% if @user.errors.any? %>
-    <div class="alert alert-block alert-error">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <h4>You got <%= pluralize(@user.errors.count, "error") %></h4>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+  <div class="control-group">
+    <%= f.label :first_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :first_name, :class => 'text_field' %>
     </div>
-  <% end %>
-
-  <%= f.text_field :first_name %>
-
-  <%= f.text_field :last_name %>
-
-  <%= f.text_field :email %>
-
-  <%= f.password_field :password %>
-
-  <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="control-group">
+    <%= f.label :last_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :last_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :password, :class => 'text_field' %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to 'Cancel', users_path, :class => 'btn' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_path, :class => 'btn' %>
   </div>
-
 <% end %>

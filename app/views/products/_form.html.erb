@@ -12,23 +12,52 @@
     </div>
   <% end %>
 
-  <%= f.text_field :name %>
-
-  <%= f.text_field :description %>
-
-  <%= f.text_field :manufacturer %>
-
-  <%= f.text_field :quantity %>
-
-  <%= f.jquery_datetime_select :registred_at %>
-
-  <%= f.text_field :category %>
-
-  <%= f.text_field :price %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :manufacturer, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :manufacturer, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :quantity, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :quantity, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :registred_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :registred_at, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :category, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :category, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :price, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :price, :class => 'text_field' %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to 'Cancel', products_path, :class => 'btn' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                products_path, :class => 'btn' %>
   </div>
-
 <% end %>
