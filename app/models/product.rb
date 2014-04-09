@@ -8,4 +8,6 @@ class Product < ActiveRecord::Base
 	validates :price, numericality: true
 	validates :category, inclusion: { in: %w(books music movies electronics home toys clothing comestible), 
 		message: "'%{value}' is not valid category." }, allow_blank: true
+
+	scope :by_category, -> category { where(category: category) }
 end
