@@ -12,12 +12,8 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-    <%= f.label :status, :class => "control-label" %>
-    <div class="controls">
-      <%= f.text_field :status, :class => "text_field" %>
-    </div>
-  </div>
+  <%= render :partial => "form_status", :locals => { :f => f  } if (params[:action] == 'edit') %>
+
   <div class="control-group">
     <%= f.label :payment_method, :class => "control-label" %>
     <div class="controls">
