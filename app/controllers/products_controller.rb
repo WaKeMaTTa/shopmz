@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     @products = @products.by_category(params[:category]) if params[:category].present?
 
     @products = @products.by_manufacturer(params[:manufacturer]) if params[:manufacturer].present?
-    
+
     @products = @products.registred_at(params[:registred_at]) if params[:registred_at].present?
     
     @products = @products.more_quantity(params[:more_quantity]) if params[:more_quantity].present?
@@ -18,12 +18,6 @@ class ProductsController < ApplicationController
 
     @products = @products.more_price(params[:more_price]) if params[:more_price].present?
     @products = @products.less_price(params[:less_price]) if params[:less_price].present?
-
-    #params.each do |key, value|
-     # if key == "category" and value.presence
-     #   @products = Product.by_category(value)
-     # end
-    #e#nd
   end
 
   # GET /products/1
@@ -89,10 +83,5 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :description, :registred_at, :manufacturer, :quantity, :price, :category)
-    end
-
-    # Parametros para filtrar la lista
-    def filter_params(params)
-      params.slice(:category)
     end
 end
