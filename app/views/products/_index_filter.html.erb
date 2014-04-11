@@ -1,0 +1,52 @@
+<%- model_class = Product -%>
+<%= form_tag(products_path, method: "get") do %>
+<div class="breadcrumb">
+
+  <div class="input-prepend">
+    <span class="add-on"><%= label_tag(:by_cateogry) %></span>
+    <%= select_tag(:category, options_for_select([
+      ['', ''],
+      ['Books', 'books'],
+      ['Music', 'music'],
+      ['Movies', 'movies'],
+      ['Electronics', 'electronics'],
+      ['Home', 'home'],
+      ['Toys', 'toys'],
+      ['Clothing', 'clothing'],
+      ['Comestible', 'comestible']
+    ]), :class => "span2") %>
+  </div>
+
+  <div class="input-prepend input-append">
+    <span class="add-on"><%= label_tag(:more_quantity, "Quantity more than") %></span>
+    <%= text_field_tag(:more_quantity, nil, :class => "span1") %>
+    <span class="add-on"><%= label_tag(:less_quantity, "less than") %></span>
+    <%= text_field_tag(:less_quantity, nil, :class => "span1") %>
+    <span class="add-on">.</span>
+  </div>
+
+  <div class="input-prepend">
+    <span class="add-on"><%= label_tag(:registred_at) %></span>
+    <%= datetime_field(:registred_at, nil, :class => "span2") %>
+  </div>
+
+  <% manufacturers = [''] %>
+  <% manufacturers += Product.select("manufacturer").map {|i| i.manufacturer } %>
+
+  <div class="input-prepend">
+    <span class="add-on"><%= label_tag(:by_manufacturer) %></span>
+    <%= select_tag(:manufacturer, options_for_select(manufacturers), :class => "span2") %>
+  </div>
+
+  <div class="input-prepend input-append">
+    <span class="add-on"><%= label_tag(:more_price, "Price more than") %></span>
+    <%= text_field_tag(:more_price, nil, :class => "span1") %>
+    <span class="add-on"><%= label_tag(:less_price, "less than") %></span>
+    <%= text_field_tag(:less_price, nil, :class => "span1") %>
+    <span class="add-on">.</span>
+  </div>
+
+  <br><%= submit_tag "filter", :class => "btn btn-primary" %>
+
+</div>
+<% end %>
