@@ -1,4 +1,3 @@
-<%- model_class = Product -%>
 <%= form_tag(products_path, method: "get") do %>
 <div class="breadcrumb">
 
@@ -20,9 +19,6 @@
     <%= datetime_field(:registred_at, nil, :class => "span2") %>
   </div>
 
-  <% manufacturers = [''] %>
-  <% manufacturers += Product.select("manufacturer").map {|i| i.manufacturer } %>
-
   <div class="input-prepend">
     <span class="add-on"><%= label_tag(:by_manufacturer) %></span>
     <%= select_tag(:manufacturer, options_for_select( get_manufacturers(true) ), :class => "span2") %>
@@ -36,7 +32,7 @@
     <span class="add-on">.</span>
   </div>
 
-  <br><%= submit_tag "filter", :class => "btn btn-primary" %>
+  <br><%= submit_tag "Filter", :class => "btn btn-primary" %>
 
 </div>
 <% end %>
