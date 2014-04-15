@@ -4,10 +4,11 @@ class Order < ActiveRecord::Base
 	accepts_nested_attributes_for :line_items, :allow_destroy => true, :reject_if => lambda { |li| li[:product_id].blank? or li[:quantity].blank? }
 
 	validates :customer_name, :delivery_city, :delivery_address, :payment_method, presence: true
-	#validates :status, inclusion: { in: %w(pending sent received), message: "'%{value}' is not valid status." }
-	validates :payment_method, inclusion: { in: %w(cash card paypal), message: "'%{value}' is not valid payment method." }
+	validates :status, presence: true, on: :update
+	validates :status, inclusion: { in: PERMITTED_STATUS_ORDER, message: "'%{value}' is not valid status." }, on: :update
+	validates :payment_method, inclusion: { in: PERMITTED_PAYMENT_METHOD, message: "'%{value}' is not valid payment method." }
 
-	before_save :set_order_status_pending, on: :create
+	before_create :set_order_status_pending, on: :create
 
 	private
 

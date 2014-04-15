@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
 	validates :name, uniqueness: true
 	validates :quantity, numericality: { only_integer: true }
 	validates :price, numericality: true
-	validates :category, inclusion: { in: %w(books music movies electronics home toys clothing comestible), 
+	validates :category, inclusion: { in: PERMITTED_CATEGORIES, 
 		message: "'%{value}' is not valid category." }, allow_blank: true
 
 	# Scope's for filter products
