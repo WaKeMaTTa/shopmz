@@ -22,4 +22,10 @@ class Product < ActiveRecord::Base
 	
 	scope :more_price, -> price { where("price > ?", price) }
 	scope :less_price, -> price { where("price < ?", price) }
+
+	def reduce_stock(less_quantity)
+		record = Product.find(self.id)
+		record.quantity -= less_quantity
+		record.save
+	end
 end
