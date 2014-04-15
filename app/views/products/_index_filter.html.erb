@@ -4,17 +4,7 @@
 
   <div class="input-prepend">
     <span class="add-on"><%= label_tag(:by_cateogry) %></span>
-    <%= select_tag(:category, options_for_select([
-      ['', ''],
-      ['Books', 'books'],
-      ['Music', 'music'],
-      ['Movies', 'movies'],
-      ['Electronics', 'electronics'],
-      ['Home', 'home'],
-      ['Toys', 'toys'],
-      ['Clothing', 'clothing'],
-      ['Comestible', 'comestible']
-    ]), :class => "span2") %>
+    <%= select_tag(:category, options_for_select( PERMITTED_CATEGORIES ), :class => "span2") %>
   </div>
 
   <div class="input-prepend input-append">
@@ -35,7 +25,7 @@
 
   <div class="input-prepend">
     <span class="add-on"><%= label_tag(:by_manufacturer) %></span>
-    <%= select_tag(:manufacturer, options_for_select(manufacturers), :class => "span2") %>
+    <%= select_tag(:manufacturer, options_for_select( get_manufacturers(true) ), :class => "span2") %>
   </div>
 
   <div class="input-prepend input-append">
